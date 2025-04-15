@@ -1,10 +1,14 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
+from crews.transcribe_and_analyze_app import transcrever_audio
 from images._my_images import Image
 from paginas.welcome import render_welcome
 from paginas.post import render_post_page
 from paginas.upload_pdf import render_upload_page
 from paginas.download_video import render_download_page
+from paginas.transcription_page import render_transcription_page
+from paginas.extrair_topicos_radio import render_extrair_topicos_radio
+
 
 
 st.sidebar.image(
@@ -17,8 +21,8 @@ st.sidebar.image(
 with st.sidebar:
     selected = option_menu(
         menu_title="Agentic Platform",  # Título do menu
-        options=["Home", "Post Agent", "Summary PDF", "Download Video"],  # Opções do menu
-        icons=['house','file-earmark-text','cloud-upload','download'],
+        options=["Home", "Post Agent", "Summary PDF", "Download Video", "Transcription", "Transcribe & Analyze", "Extract Radio Topics"],  # Opções do menu
+        icons=['house','file-earmark-text','cloud-upload','download','file-text'],
         menu_icon='robot',
         default_index=0,
         orientation="vertical" #teste com "horizontal"
@@ -43,4 +47,13 @@ elif selected == "Summary PDF":
 
 elif selected == "Download Video":
     render_download_page()
+
+elif selected == "Transcription":
+    render_transcription_page()
+
+elif selected == "Transcribe & Analyze":
+    render_transcription_page
+
+elif selected == "Extract Radio Topics":
+    render_extrair_topicos_radio()
 
