@@ -34,12 +34,13 @@ orquestrador = Agent(
 
 # Função para gerar data de busca
 def _data_query():
-    ontem = datetime.now() - timedelta(days=1)
-    return ontem.strftime("%Y-%m-%d")
+    agora = datetime.now()
+    ontem = agora - timedelta(days=1)
+    return ontem.strftime("%Y-%m-%dT%H:%M:%S"), agora.strftime("%Y-%m-%dT%H:%M:%S")
 
 # Função principal que roda a crew multi-clientes
 def executar_em_lote(lista_clientes: list[str]) -> str:
-    data_query = _data_query()
+    data_query_inicio, data_query_fim = _data_query()
     tasks = []
     pesquisadores = []
 
@@ -50,13 +51,12 @@ def executar_em_lote(lista_clientes: list[str]) -> str:
 
         task = Task(
             description=(
-                f"Pesquise notícias publicadas desde {data_query} sobre o cliente: {cliente}. "
-                f"Use o termo de busca '{cliente} after:{data_query}'. "
-                f"Para cada resultado, extraia o **título da matéria** seguido do link. "
-                f"Formate assim: \n\nTítulo da Matéria\nlink\n\nTítulo da Matéria\nlink\n...\n\n"
-            f"Não escreva mais nada além disso."
+                f"Pesquise notícias publicadas entre {data_query_inicio} e {data_query_fim} sobre o cliente: {cliente}. "
+                f"Use o termo de busca '{cliente} after:{data_query_inicio} before:{data_query_fim}'. "
+                f"Para cada resultado encontrado, extraia o título da matéria seguido do link, sem inventar exemplos. "
+                f"Formate cada bloco assim: Título da matéria: <título>\nlink: <url>\n\n. Não escreva exemplos, apenas resultados reais."
             ),
-            expected_output="Uma lista contendo o título de cada matéria seguido do link, um bloco por linha.",
+            expected_output="Uma lista contendo o título de cada matéria seguido do link, um bloco por linha, apenas com resultados reais.",
             agent=pesquisador
         )
 
