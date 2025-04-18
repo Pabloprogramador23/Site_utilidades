@@ -2,8 +2,10 @@
 
 from crewai import Agent, Task, Crew, Process
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
-os.environ["OPENAI_API_KEY"] = "YOUR_OPENAI_API_KEY"
+
 
 # Agente 1: Analista de Conversa
 conversation_analyst = Agent(

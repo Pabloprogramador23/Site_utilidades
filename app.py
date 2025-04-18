@@ -8,6 +8,7 @@ from paginas.upload_pdf import render_upload_page
 from paginas.download_video import render_download_page
 from paginas.transcription_page import render_transcription_page
 from paginas.extrair_topicos_radio import render_extrair_topicos_radio
+from paginas.pesquisa_noticias import render_pesquisa_page
 
 
 
@@ -21,7 +22,7 @@ st.sidebar.image(
 with st.sidebar:
     selected = option_menu(
         menu_title="Agentic Platform",  # Título do menu
-        options=["Home", "Post Agent", "Summary PDF", "Download Video", "Transcription", "Transcribe & Analyze", "Extract Radio Topics"],  # Opções do menu
+        options=["Home", "Post Agent", "Summary PDF", "Download Video", "Transcription", "Transcribe & Analyze", "Extract Radio Topics", "Pesquisa Caralho"],  # Adicionada nova opção
         icons=['house','file-earmark-text','cloud-upload','download','file-text'],
         menu_icon='robot',
         default_index=0,
@@ -56,4 +57,7 @@ elif selected == "Transcribe & Analyze":
 
 elif selected == "Extract Radio Topics":
     render_extrair_topicos_radio()
+
+elif selected == "Pesquisa Caralho":
+    render_pesquisa_page()
 
