@@ -19,8 +19,7 @@ def criar_pesquisador():
         goal='Encontrar notícias publicadas nas últimas 24 horas sobre o cliente atribuído',
         backstory='Você é um jornalista digital dedicado a encontrar o que saiu de mais recente sobre {cliente}.',
         tools=[search_tool],
-        verbose=False,
-        memory=True
+        verbose=True,
     )
 
 # Agente orquestrador que formata os dados
