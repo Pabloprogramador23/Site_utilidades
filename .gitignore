@@ -8,3 +8,29 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Arquivos de ambiente e segredos
+.env
+.env.*
+*.env
+
+# Arquivos de configuração sensíveis
+*.key
+*.pem
+*.crt
+*.sqlite3
+
+# Dados temporários e diretórios customizados
+temp/
+temp_downloads/
+db/
+*.log
+
+# Arquivos de lock e dependências
+uv.lock
+
+# Outros arquivos que não devem ser versionados
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
