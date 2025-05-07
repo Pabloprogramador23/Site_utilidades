@@ -10,7 +10,7 @@ from crews.crew_analyzer import analisar_parte
 
 # ========== CONFIG ==========
 DURACAO_BLOCOS_MINUTOS = 15
-MODELO_WHISPER = "medium"
+MODELO_WHISPER = "tiny"
 PASTA_TEMP = "audios_divididos"
 ARQUIVO_TRANSCRICAO = "transcricao_completa.txt"
 TAMANHO_BLOCO_TEXTO = 2000
