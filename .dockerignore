@@ -1,0 +1,20 @@
+# Evita copiar arquivos e pastas desnecessários para a imagem Docker
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv
+db/
+temp/
+temp_downloads/
+*.log
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+.env
+.env.*
+*.env
+uv.lock
