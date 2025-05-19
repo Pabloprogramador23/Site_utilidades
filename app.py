@@ -10,7 +10,9 @@ from paginas.transcribe_and_analyze_page import render_transcription_page
 from paginas.desativado_extrair_topicos_radio import render_extrair_topicos_radio
 from paginas.pesquisa_noticias import render_pesquisa_page
 from paginas.advanced_research_page import render_advanced_research_page
-
+from paginas.pesquisa_lista_sites import render_pesquisa_lista_sites_page
+from dotenv import load_dotenv
+load_dotenv()
 
 
 st.sidebar.image(
@@ -24,7 +26,7 @@ with st.sidebar:
     selected = option_menu(
         menu_title="Agentic Platform",  # Título do menu
         options=[
-            "Home", "Post Agent", "Summary PDF", "Download Video", "Transcreve e analisa", "Extract Radio Topics", "Pesquisa Caralho", "Advanced Research"  # Adicionada nova opção
+            "Home", "Post Agent", "Summary PDF", "Download Video", "Transcreve e analisa", "Extract Radio Topics", "Pesquisa Caralho", "Advanced Research", "Pesquisa Sites"  # Adicionada nova opção
         ],
         icons=['house','file-earmark-text','cloud-upload','download','file-text'],
         menu_icon='robot',
@@ -66,4 +68,7 @@ elif selected == "Pesquisa Caralho":
 
 elif selected == "Advanced Research":
     render_advanced_research_page()
+
+elif selected == "Pesquisa Sites":
+    render_pesquisa_lista_sites_page()
 

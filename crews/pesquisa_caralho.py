@@ -85,4 +85,4 @@ def executar_em_lote(lista_clientes: list[str]) -> str:
     )
 
     resultado = crew.kickoff()
-    return resultado
+    return str(resultado)
